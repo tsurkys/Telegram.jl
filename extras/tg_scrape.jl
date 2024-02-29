@@ -74,15 +74,17 @@ function process_table(x, methods, io)
         print(cio, "\n")
     end
 
+    takeclean(input) = replace(strip(String(take!(input))), '$' => "D")
+    
     if isrequired
         print(io, "# Required arguments\n")
-        print(io, strip(String(take!(required))))
+        print(io, takeclean(required))
         print(io, "\n\n")
     end
 
     if isoptional
         print(io, "# Optional arguments\n")
-        print(io, strip(String(take!(optional))))
+        print(io, takeclean(optional))
         print(io, "\n")
     end
 
